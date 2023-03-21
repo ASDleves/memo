@@ -30,6 +30,9 @@ const KIVALASZTOTTKEPEK_MASODIK = [];
 let db = 0;
 let szamlalo = 0;
 let kepdb = 0
+var startTime = 0
+var endTime = 0
+
 $(function () {
   létrehozás();
   //ide jön a kód
@@ -74,11 +77,15 @@ function kepreKattintas() {
   visszafordit();  
   }
   lepesszam++;
+  if (lepesszam == 1){
+    start()
+  }
   if (szamlalo == 6){
     console.log("lépéseid száma",lepesszam/2)
     lepeskiiras()
     lepesszam = 0
     szamlalo = 0
+    end()
   }
 }
 
@@ -133,6 +140,7 @@ function lepeskiiras(){
   document.getElementById("myArticle").appendChild(para);
 
 }
+
 function létrehozás(){
   const divElement = document.getElementById('jatek');
 
@@ -168,4 +176,31 @@ function torles() {
   const list = document.getElementById("jatek");
   list.removeChild(list.firstElementChild);
   list.removeChild(list.firstElementChild);
+}
+function start() {
+  startTime = new Date();
+};
+
+function end() {
+  endTime = new Date();
+  var timeDiff = endTime - startTime; //in ms
+  // strip the ms
+  timeDiff /= 1000;
+
+  // get seconds 
+  var seconds = Math.round(timeDiff);
+  console.log(seconds + " seconds");
+  var x = document.createElement("ASIDE");
+  x.setAttribute("id", "ido");
+  document.body.appendChild(x);
+
+  var heading = document.createElement("H1");
+  var txt1 = document.createTextNode("Ennyi időbe telt hogy megtaláld az összes párt");
+  heading.appendChild(txt1);
+  document.getElementById("ido").appendChild(heading);
+
+  var para = document.createElement("P");
+  var txt2 = document.createTextNode(seconds+" másodperc");
+  para.appendChild(txt2);
+  document.getElementById("ido").appendChild(para);
 }
