@@ -176,10 +176,17 @@ function torles() {
   const list = document.getElementById("jatek");
   list.removeChild(list.firstElementChild);
   list.removeChild(list.firstElementChild);
+  const idomeres = document.getElementById("ido");
+  idomeres.remove();
+  const lepesszamkiir = document.getElementById("myArticle");
+  lepesszamkiir.remove()
 }
 function start() {
   startTime = new Date();
 };
+function myFunction() {
+  
+}
 
 function end() {
   endTime = new Date();
