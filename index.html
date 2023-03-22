@@ -15,12 +15,19 @@
 <body>
     <main>
         <header>Memóriajáték</header>
+        <form action="none" id="valasz">
+            <h1>Login</h1>
+            <p>Adja meg hány db 2 pár kártyát szeretne hozzá adni a játékhoz, válasszon -1-tól 14-ig</p>
+            <input type="number"  id="valasztas" class="form-control" placeholder="szam" min="-1" max="14"><br>
+            <button type="submit" onclick="hozzaad()">Submit</button>
+          </form>
         <div id="jatek">
             
         </div>
         <nav>
             <button onclick="jatekkezdes()">Játék</button>
         </nav>
+        <div id="kiirat"></div>
         <footer>Bella Richárd</footer>
         
     </main>
